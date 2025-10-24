@@ -31,4 +31,5 @@ c. GND pins-GND
    - OUT3 and OUT4 - right motor terminal
    - L298N VCC(12V) -battery or seperate power supply for  motors.
    - L298N GND- Arduino GND + Battery negative terminal.
+   
 
