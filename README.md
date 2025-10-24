@@ -1,4 +1,5 @@
 The C++ code is used to make a path following bot.
+
 -requirements:-
 1. 5 IR sensors
 2. 2 moters
@@ -10,13 +11,16 @@ this is a simple project of line following bot which uses Ardino uno, an array o
 
 Connections
 1. IR sensors(5)
+
 a. OUT pins- Ardino inputs
      - IR1:A0
      - IR2:A1
      - IR3:A2
      - IR4:A3
      - IR5:A4
+
 b. VCC pins- 5V
+
 c. GND pins-GND
 
 3. Arduino UNO
@@ -36,8 +40,11 @@ Our project is simply based on 5 IR sensors which help us detect lines. After de
 
 You can build and test this circuit in Tinkercad:
 •	Add components as above
+
 •	Wire the sensors, motor driver, motors, and Arduino
+
 •	Copy-paste the sketch to Arduino code editor
+
 •	Simulate line following by adjusting IR sensor “inputs”
 
 L298N module may not be available so we may use any other similar module.
