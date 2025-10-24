@@ -1,0 +1,109 @@
+// IR Sensor pins
+#define S1 A0
+#define S2 A1
+#define S3 A2
+#define S4 A3
+#define S5 A4
+
+// Motor Driver pins
+#define IN1 2  // Left motor direction
+#define IN2 3
+#define IN3 4  // Right motor direction
+#define IN4 5
+#define ENA 9  // Left motor PWM
+#define ENB 10 // Right motor PWM
+
+// PID constants
+float Kp = 45;
+float Ki = 0;
+float Kd = 15;
+
+int baseSpeed = 175; // Base speed for motors (0-255)
+int maxSpeed = 255;
+int minSpeed = 0;
+
+// PID variables
+float error = 0, lastError = 0, integral = 0, derivative = 0, correction = 0;
+
+void setup() {
+  pinMode(S1, INPUT);
+  pinMode(S2, INPUT);
+  pinMode(S3, INPUT);
+  pinMode(S4, INPUT);
+  pinMode(S5, INPUT);
+
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  pinMode(ENA, OUTPUT);
+  pinMode(ENB, OUTPUT);
+
+  Serial.begin(9600);
+}
+
+// Read sensors and return an error value based on position
+int getPositionError() {
+  int s[5];
+  s[0] = digitalRead(S1);
+  s[1] = digitalRead(S2);
+  s[2] = digitalRead(S3);
+  s[3] = digitalRead(S4);
+  s[4] = digitalRead(S5);
+  // Assume: LOW = line detected, HIGH = white
+
+  // Weighted error calculation
+  // Assign weights: S1 = -2, S2 = -1, S3 = 0, S4 = 1, S5 = 2
+  // The more negative, the more left; more positive, the more right
+  error = 0;
+  for (int i = 0; i < 5; i++) {
+    if (s[i] == LOW) error += (i - 2); // i-2: -2 to +2
+  }
+  return error;
+}
+
+void setMotor(int leftSpeed, int rightSpeed) {
+  // Clamp speeds
+  leftSpeed = constrain(leftSpeed, minSpeed, maxSpeed);
+  rightSpeed = constrain(rightSpeed, minSpeed, maxSpeed);
+
+  // Left motor forward
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  analogWrite(ENA, leftSpeed);
+
+  // Right motor forward
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+  analogWrite(ENB, rightSpeed);
+}
+
+void loop() {
+  error = getPositionError();
+  integral += error;
+  derivative = error - lastError;
+  correction = Kp * error + Ki * integral + Kd * derivative;
+
+  int leftMotorSpeed = baseSpeed - correction;
+  int rightMotorSpeed = baseSpeed + correction;
+
+  setMotor(leftMotorSpeed, rightMotorSpeed);
+
+  lastError = error;
+
+  // Optional: Stop if all sensors HIGH (off the line)
+  if (digitalRead(S1) == HIGH && digitalRead(S2) == HIGH && digitalRead(S3) == HIGH && digitalRead(S4) == HIGH && digitalRead(S5) == HIGH) {
+    // Stop motors
+    analogWrite(ENA, 0);
+    analogWrite(ENB, 0);
+  }
+
+  // Debug output
+  Serial.print("Error: "); Serial.print(error);
+  Serial.print(" Correction: "); Serial.print(correction);
+  Serial.print(" Left: "); Serial.print(leftMotorSpeed);
+  Serial.print(" Right: "); Serial.println(rightMotorSpeed);
+
+  delay(10); // Sampling delay
+}
