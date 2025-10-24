@@ -13,14 +13,11 @@ Connections
 1. IR sensors(5)
 
 a. OUT pins- Ardino inputs
+
      - IR1:A0
-     
      - IR2:A1
-     
      - IR3:A2
-     
      - IR4:A3
-     
      - IR5:A4
 
 b. VCC pins- 5V
