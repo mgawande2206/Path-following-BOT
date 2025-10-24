@@ -1,5 +1,5 @@
 The C++ code is used to make a path following bot.
-requirements:-
+-requirements:-
 1. 5 IR sensors
 2. 2 moters
 3. ARDININO UNO
