@@ -19,4 +19,16 @@ Connections
    b. VCC pins- 5V
    c. GND pins-GND
 
-2.
+2. Arduino UNO
+   -USB powered by external supply
+   -Other connections given above
+3. L298N Motor Driver
+   - IN1:D2
+   - IN2:D3
+   - IN3:D4
+   - IN4:D5
+   - OUT1 and OUT 2- left motor terminal
+   - OUT3 and OUT4 - right motor terminal
+   - L298N VCC(12V) -battery or seperate power supply for  motors.
+   - L298N GND- Arduino GND + Battery negative terminal.
+
