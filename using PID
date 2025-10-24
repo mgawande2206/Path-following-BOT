@@ -1,1 +1,21 @@
-.
+This is simply to explain what I learnt about PID
+To use PID in code was difficult due to less coding knowledge.
+The second code using PID was mostly done with help of gpt but I tried my best to understand the code.
+But this is what I understood by PID.
+PID
+PID is a n algorithm that is very helpful in looping system. it helps us increase accuracy and predicting the right way out of any problem.
+P-Proportional
+I-Integral
+D-Derivative
+I would like to explain this with help of a simple example.
+
+A water tank is being filled by rate of 15 l/s and at same time water also leaves from it at same rate. water tank is steady at 60%.
+Now the rate of discharge increases to 17 l/s. But we want a steady water level of 605. So now lets see how our algorithm works.
+
+P-Proportionality takes charge and makes the rate of filling to be 17 l/s.
+
+But this is not enough. we now will not get steady state of 60%. as some level has decreased in our action time.
+
+I-Integrity adds an integrated graph area multiplied by constant to our filling rate. this increases the filling rate. This is not constant and changes continuously at every sec.
+
+D-Derivative is responsible for fast reaching of steady state. It simply adds a new value to our incoming speed to increase speed. The steady state can also be reached by PI but D helps us to achieve it very early.
