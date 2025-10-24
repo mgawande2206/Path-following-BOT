@@ -39,6 +39,7 @@ You can build and test this circuit in Tinkercad:
 •	Wire the sensors, motor driver, motors, and Arduino
 •	Copy-paste the sketch to Arduino code editor
 •	Simulate line following by adjusting IR sensor “inputs”
+
 L298N module may not be available so we may use any other similar module.
 
 Motors require external power supply.
