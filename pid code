@@ -11,7 +11,6 @@
 #define ENA 9  // Left motor PWM
 #define ENB 10 // Right motor PWM
 
-// PID constants
 float Kp = 45; // proportional constant
 float Ki = 0; //integral constant
 float Kd = 15; // differential constant
@@ -106,4 +105,5 @@ void loop() {
 
   delay(10); // Sampling delay
 }
+
 
