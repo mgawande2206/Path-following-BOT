@@ -1,11 +1,9 @@
-// IR Sensor pins
 #define S1 A0
 #define S2 A1
 #define S3 A2
 #define S4 A3
 #define S5 A4
 
-// Motor Driver pins
 #define IN1 2  // Left motor direction
 #define IN2 3
 #define IN3 4  // Right motor direction
@@ -14,9 +12,9 @@
 #define ENB 10 // Right motor PWM
 
 // PID constants
-float Kp = 45;
-float Ki = 0;
-float Kd = 15;
+float Kp = 45; // proportional constant
+float Ki = 0; //integral constant
+float Kd = 15; // differential constant
 
 int baseSpeed = 175; // Base speed for motors (0-255)
 int maxSpeed = 255;
@@ -37,6 +35,7 @@ void setup() {
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
 
+  // they are used to enable or disable moters and control their speeds
   pinMode(ENA, OUTPUT);
   pinMode(ENB, OUTPUT);
 
@@ -107,3 +106,4 @@ void loop() {
 
   delay(10); // Sampling delay
 }
+
