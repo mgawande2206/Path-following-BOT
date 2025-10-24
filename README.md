@@ -35,5 +35,8 @@ c. GND pins-GND
 Our project is simply based on 5 IR sensors which help us detect lines. After detecting lines and getting input we simply use this info if-else loop. If conditions hold true for a specific input we call the functions that we have defined for that particular case.Once the function is called it runs the particular motor helping our bot to move along the line.
 For tinkercad L298N module may not be available so we may use any other similar module.
 motors may require external power supply.
+
+
+Secondly we have used PID algorithm in the saae code. this algorithm not only helps tto follow right path but help us do it with precision and accuracy.
    
 
