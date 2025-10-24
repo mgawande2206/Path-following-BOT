@@ -10,14 +10,14 @@ this is a simple projrct of line following bot which uses ardino uno, an array o
 
 Connections
 1. IR sensors(5)
-   a. OUT pins- Ardino inputs
+a. OUT pins- Ardino inputs
      - IR1:A0
      - IR2:A1
      - IR3:A2
      - IR4:A3
      - IR5:A4
-   b. VCC pins- 5V
-   c. GND pins-GND
+b. VCC pins- 5V
+c. GND pins-GND
 
 2. Arduino UNO
    -USB powered by external supply
