@@ -83,5 +83,5 @@ void loop(){
 //we are reading the input from each of the sensors
     
 // now with the help of if and for loop we will add conditions and then call the particular function of it to 
-//ensure the bot follows the path# Auto detect text files and perform LF normalization
-* text=auto
+//ensure the bot follows the path
+
