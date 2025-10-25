@@ -8,7 +8,6 @@ The C++ code is used to make a path following bot.
 Description: - this is a simple project of line following bot which uses Arduino uno, an array of 5 IR sensors, 2 dc motors, a breadboard, L298N motor driver module, two dc motors.
 Connections
 1.	IR sensors (5)
-a. OUT pins- Arduino inputs
 
 a. OUT pins- Arduino inputs
 
