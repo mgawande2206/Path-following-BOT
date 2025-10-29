@@ -3,7 +3,7 @@ To use PID in code was difficult due to less coding knowledge.
 The second code using PID was mostly done with help of gpt but I tried my best to understand the code.
 But this is what I understood by PID.
 PID
-PID is a n algorithm that is very helpful in looping system. it helps us increase accuracy and predicting the right way out of any problem.
+PID is an algorithm that is very helpful in looping system. it helps us increase accuracy and predicting the right way out of any problem.
 P-Proportional
 I-Integral
 D-Derivative
